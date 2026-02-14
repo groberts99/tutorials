@@ -1,8 +1,8 @@
 locals {
   env         = "staging"
-  region      = "us-east-2"
-  zone1       = "us-east-2a"
-  zone2       = "us-east-2b"
+  region      = "eu-west-2"
+  zone1       = "eu-west-2a"
+  zone2       = "eu-west-2b"
   eks_name    = "demo"
-  eks_version = "1.29"
+  eks_version = "1.33"
 }
