@@ -1,0 +1,4 @@
+aws eks update-kubeconfig \
+--region eu-west-2 \
+--name staging-demo \
+--profile testlab-full
