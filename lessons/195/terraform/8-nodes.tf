@@ -45,10 +45,10 @@ resource "aws_eks_node_group" "general" {
     ]
 
     capacity_type = "ON_DEMAND"
-    instance_types = ["t3.micro"]
+    instance_types = ["t3.medium"]
 
     scaling_config {
-      desired_size = 1
+      desired_size = 2
       max_size = 4
       min_size = 0
     }
@@ -72,4 +72,10 @@ resource "aws_eks_node_group" "general" {
       ignore_changes = [scaling_config[0].desired_size]
     }   
   
+}
+
+resource "aws_eks_access_entry" "nodes" {
+  cluster_name  = aws_eks_cluster.eks.name
+  principal_arn = aws_iam_role.nodes.arn
+  type          = "EC2_LINUX"
 }
