@@ -38,6 +38,7 @@ resource "aws_eks_node_group" "general" {
     version = local.eks_version
     node_group_name = "general"
     node_role_arn = aws_iam_role.nodes.arn
+    ami_type = "AL2023_x86_64_STANDARD"
 
     subnet_ids = [
         aws_subnet.private_zone1.id,
@@ -48,7 +49,7 @@ resource "aws_eks_node_group" "general" {
     instance_types = ["t3.medium"]
 
     scaling_config {
-      desired_size = 2
+      desired_size = 1
       max_size = 4
       min_size = 0
     }
